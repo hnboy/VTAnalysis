@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import re
 import matplotlib.pyplot as plt
@@ -65,7 +65,7 @@ def get_data(filename):
                 data = data[-2]
                 try:
                     data = float(data[:-2])
-                    if (data<1)&&(data)>0:
+                    if (data<1) and (data>0):
                         vtp.append(data)
                 except:
                     pass
@@ -96,7 +96,7 @@ def write_to_file(filename,vt):
 
 
 if __name__ == '__main__':
-    location = "C:\\Users\\luowenqi\\Desktop\\AS01009_#4\\"
+    location = "./"
     file_name(location)
     for file in file_list:
         filename = location + file
