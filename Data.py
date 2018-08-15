@@ -77,11 +77,19 @@ def plain(title,vt):
 
     a = np.array(vt)
 #    plt.xlim([-1, 1])
-    plt.hist(a,bins=100,alpha=0.5,histtype="barstacked")
+
+    if 'vte' in title:
+        bin = np.arange(-1,0,0.01)
+        #plt.xticks(np.arange(-1,-0.3,0.02))
+    elif 'vtp' in title:
+        bin = np.arange(0,1,0.01)
+        #plt.xticks(np.arange(0.3,1,0.02))
+    #plt.hist(a,bin,alpha=0.5,histtype="barstacked")
+    plt.hist(a,bin,alpha = 0.5)
     plt.xlabel("vt (V)")
     plt.ylabel("count")
     plt.title(title)
-   # plt.show()
+    #plt.show()
     plt.plot()
     picturename = title+".png"
 
@@ -92,8 +100,6 @@ def plain(title,vt):
 
 def write_to_file(filename,vt):
     print(filename)
-
-
 
 if __name__ == '__main__':
     location = "./"
@@ -107,11 +113,11 @@ if __name__ == '__main__':
     #(map(float,vtp))
     vtp.sort()
     vte.sort()
+    print(vte)
 
     name = "vte"
     vt = vte
     plain(name,vt)
-
     name = "vtp"
     vt = vtp
     plain(name,vt)
